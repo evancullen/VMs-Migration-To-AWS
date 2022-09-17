@@ -111,7 +111,7 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     # Set the metadata, 
     echo '[
       {
-        "Description": "centosv7",
+        "Description": "ubuntu22.04",
         "Format": "vmdk",
         "UserBucket": {
             "S3Bucket": "'${bucket_name}'",
@@ -124,23 +124,23 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ###  Begin VM Import
 
       ```sh
-      aws ec2 import-image --description "centosv7" --disk-containers "file://containers.json"
+      aws ec2 import-image --description " ubuntu22.04" --disk-containers "file://containers.json"
       ```
 
       _The expected output,_
 
       ```sh
       {
-          "Description": "centosv7",
-          "ImportTaskId": "import-ami-0d6db3a35d431e4e3",
+          "Description": "ubuntu22.04",
+          "ImportTaskId": "import-ami-0ff596d41505819fd",
           "Progress": "2",
           "SnapshotDetails": [
               {
                   "DiskImageSize": 0.0,
                   "Format": "VMDK",
                   "UserBucket": {
-                      "S3Bucket": "n-backup",
-                      "S3Key": "VM-Import/vCentOS7-disk002.vmdk"
+                      "S3Bucket": "n-backupde",
+                      "S3Key": "VM-Import/ubuntu 22.04-disk001.vmdk"
                   }
               }
           ],
@@ -154,29 +154,29 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ### Check status of VM Import Jobs
 
       ```sh
-      aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0d6db3a35d431e4e3"
+      aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
       ```
 
     ### Check VM Import Progress
 
       ```sh
       # VM Image being updated to AMI
-      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0d6db3a35d431e4e3"
+      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
       {
           "ImportImageTasks": [
               {
-                  "Description": "centosv7",
-                  "ImportTaskId": "import-ami-0d6db3a35d431e4e3",
+                  "Description": "ubuntu22.04",
+                  "ImportTaskId": "import-ami-0ff596d41505819fd",
                   "Progress": "30",
                   "SnapshotDetails": [
                       {
-                          "Description": "centosv7",
+                          "Description": " ubuntu22.04",
                           "DiskImageSize": 931182592.0,
                           "Format": "VMDK",
                           "Status": "completed",
                           "UserBucket": {
-                              "S3Bucket": "n-backup",
-                              "S3Key": "VM-Import/vCentOS7-disk002.vmdk"
+                              "S3Bucket": "n-backupde",
+                              "S3Key": "VM-Import/ubuntu 22.04-disk001.vmdk"
                           }
                       }
                   ],
@@ -190,27 +190,27 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ### Completion Status
 
       ```sh
-      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0d6db3a35d431e4e3"
+      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
       {
           "ImportImageTasks": [
               {
-                  "Architecture": "x86_64",
-                  "Description": "centosv7",
-                  "ImageId": "ami-0da97e2296167b5ca",
-                  "ImportTaskId": "import-ami-0d6db3a35d431e4e3",
+                  "Architecture": "64-bit(x86)",
+                  "Description": "ubuntu22.04",
+                  "ImageId": "ami-02f3416038bdb17fb",
+                  "ImportTaskId": "import-ami-0ff596d41505819fd",
                   "LicenseType": "BYOL",
                   "Platform": "Linux",
                   "SnapshotDetails": [
                       {
-                          "Description": "centosv7",
+                          "Description": "ubuntu22.04",
                           "DeviceName": "/dev/sda1",
                           "DiskImageSize": 931182592.0,
                           "Format": "VMDK",
                           "SnapshotId": "snap-0dc6d32a5924b22c7",
                           "Status": "completed",
                           "UserBucket": {
-                              "S3Bucket": "n-backup",
-                              "S3Key": "VM-Import/vCentOS7-disk002.vmdk"
+                              "S3Bucket": "n-backupde",
+                              "S3Key": "VM-Import/ubuntu 22.04-disk001.vmdk"
                           }
                       }
                   ],
