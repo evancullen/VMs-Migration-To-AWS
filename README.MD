@@ -21,9 +21,9 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
 1. ## Global Customization Variables
 
     ```sh
-    bucket_name="n-backup"
+    bucket_name="n-backupde"
     # Add the appropriate S3 Prefix to the VM Image
-    vm_image_name="VM-Import/vCentOS7-disk002.vmdk"
+    vm_image_name="VM-Import/ubuntu 22.04-disk001.vmdk"
     ```
 
 1. ### Create Trust Policy
