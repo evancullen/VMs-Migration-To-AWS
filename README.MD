@@ -111,7 +111,7 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     # Set the metadata, 
     echo '[
       {
-        "Description": "ubuntu22.04",
+        "Description": "ubuntuv22.04-disk001",
         "Format": "vmdk",
         "UserBucket": {
             "S3Bucket": "'${bucket_name}'",
@@ -124,7 +124,7 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ###  Begin VM Import
 
       ```sh
-      aws ec2 import-image --description " ubuntu22.04" --disk-containers "file://containers.json"
+      aws ec2 import-image --description "ubuntuv22.04-disk001" --disk-containers "file://containers.json"
       ```
 
       _The expected output,_
