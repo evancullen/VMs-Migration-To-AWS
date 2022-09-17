@@ -132,7 +132,7 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
       ```sh
       {
           "Description": "ubuntu22.04",
-          "ImportTaskId": "import-ami-0ff596d41505819fd",
+          "ImportTaskId": "import-ami-02f3416038bdb17fb",
           "Progress": "2",
           "SnapshotDetails": [
               {
@@ -154,23 +154,23 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ### Check status of VM Import Jobs
 
       ```sh
-      aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
+      aws ec2 describe-import-image-tasks --import-task-ids "import-ami-02f3416038bdb17fb"
       ```
 
     ### Check VM Import Progress
 
       ```sh
       # VM Image being updated to AMI
-      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
+      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-02f3416038bdb17fb"
       {
           "ImportImageTasks": [
               {
                   "Description": "ubuntu22.04",
-                  "ImportTaskId": "import-ami-0ff596d41505819fd",
+                  "ImportTaskId": "import-ami-02f3416038bdb17fb",
                   "Progress": "30",
                   "SnapshotDetails": [
                       {
-                          "Description": " ubuntu22.04",
+                          "Description": "ubuntu22.04",
                           "DiskImageSize": 931182592.0,
                           "Format": "VMDK",
                           "Status": "completed",
@@ -190,14 +190,14 @@ Using `VM Import` migrate your existing VM-based applications and preserve the s
     ### Completion Status
 
       ```sh
-      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-0ff596d41505819fd"
+      [root:tmp]# aws ec2 describe-import-image-tasks --import-task-ids "import-ami-02f3416038bdb17fb"
       {
           "ImportImageTasks": [
               {
-                  "Architecture": "64-bit(x86)",
+                  "Architecture": "x86_64",
                   "Description": "ubuntu22.04",
-                  "ImageId": "ami-02f3416038bdb17fb",
-                  "ImportTaskId": "import-ami-0ff596d41505819fd",
+                  "ImageId": "ami-0ff596d41505819fd",
+                  "ImportTaskId": "import-ami-02f3416038bdb17fb",
                   "LicenseType": "BYOL",
                   "Platform": "Linux",
                   "SnapshotDetails": [
